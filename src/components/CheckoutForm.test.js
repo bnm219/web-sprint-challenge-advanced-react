@@ -4,11 +4,11 @@ import userEvent from '@testing-library/user-event';
 import CheckoutForm from "./CheckoutForm";
 
 const firstNameInputSetUp = (input) =>{
-    const firstNameInput = screen.getByLabelText(/firstname/i);
+    const firstNameInput = screen.getByLabelText(/first name/i);
     userEvent.type(firstNameInput, input);
 }
 const lastNameInputSetUp = (input) =>{
-    const lastNameInput = screen.getByLabelText(/lastname/i);
+    const lastNameInput = screen.getByLabelText(/last name/i);
     userEvent.type(lastNameInput, input);
 }
 const addressInputSetUp = (input) =>{
@@ -49,7 +49,8 @@ test("form shows success message on submit with form details", async () => {
     zipInputSetUp('12345');
 
     clickSubmit();
-    const firstName = screen.getAllByText('Justin');
+    const firstName = screen.getByText('Justin');
+
     const lastName = screen.getAllByText('Burk');
     const address = screen.getAllByText('123 main st');
     const city = screen.getAllByText('Dallas');

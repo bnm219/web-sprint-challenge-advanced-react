@@ -1,4 +1,7 @@
-export const useForm = (e, values, setValues, setShowSuccessMessage) =>{
+import { useState } from 'react';
+export const useForm = (initialValue, setShowSuccessMessage) =>{
+  const [values, setValues] = useState(initialValue);
+
     const handleChanges = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
       };
